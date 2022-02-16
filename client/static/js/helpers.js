@@ -19,7 +19,7 @@ const postStory = async (e) => {
     if (err) {
       throw Error(err);
     } else {
-      window.location.hash = `/#${id}`;
+      window.location.hash = `${post_id}`;
     }
   } catch (err) {
     console.warn(err);
@@ -27,7 +27,7 @@ const postStory = async (e) => {
 };
 
 const updateContent = () => {
-  let hash = window.location.hash;
+  let hash = window.location.hash; //This returns #6
   console.log(hash);
 };
 
