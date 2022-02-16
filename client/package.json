@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage --watchAll",
     "build": "browserify ./static/js/main.js -o ./static/js/bundle.js",
     "watch": "watchify ./static/js/main.js -o ./static/js/bundle.js -v"
   },
@@ -17,6 +17,7 @@
     "http-server": "^14.1.0"
   },
   "devDependencies": {
+    "jest": "^27.5.1",
     "watchify": "^4.0.0"
   }
 }

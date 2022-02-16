@@ -47,4 +47,10 @@ const createForm = () => {
   body.appendChild(form);
 };
 
-module.exports = { createForm };
+const exportedForTesting = {
+  createInput,
+  createTextarea,
+  createSubmit,
+};
+
+module.exports = { createForm, exportedForTesting };
