@@ -1,5 +1,7 @@
 # lap2-code-challenge
 
+Paired coding challenge to create an anonymous thought posting website similar to [telegra.ph](https://telegra.ph/) using a database.
+
 ## Installation & Usage
 
 1. Clone the repo using `git clone https://github.com/rxdvd/lap2-code-challenge.git`.
