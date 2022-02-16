@@ -33,5 +33,24 @@ describe("Helper functions:", () => {
       await postStory(mockEvent);
       expect(fetch).toHaveBeenCalled();
     });
+    it("calls the post method", async () => {
+      await postStory(mockEvent);
+      expect(fetch).toHaveBeenCalledWith("http://localhost:3000/posts", {
+        body: '{"title":"cat","name":"cat","body":"cat"}',
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+    });
+    it("has an unhappy path", async () => {
+      fetch.mockImplementationOnce(() =>
+        Promise.reject("You can't post that!")
+      );
+      const err = await postStory(mockEvent);
+
+      expect(err).not.toBe(null);
+    });
   });
 });
