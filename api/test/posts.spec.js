@@ -1,11 +1,7 @@
-const request = require('supertest');
-const app = require('../server');
-const posts = require('../data/posts');
-const port = process.env.PORT || 5000;
-
 describe('/posts routes', () => {
     let api;
-    beforeAll(() => {
+    beforeAll(async () => {
+        await initDatabase();
         api = app.listen(port, () =>{
             console.log(`Test server listening on port ${port}`);
         });
@@ -38,7 +34,21 @@ describe('/posts routes', () => {
         it('returns correct response data', done => {
             request(api)
                 .get("/posts/1")
-                .expect(posts[0], done);
+                .end((err, res) => {
+                    if(err) return done(err);
+                    try {
+                        expect(res.body).toMatchObject({
+                            post_id: 1,
+                            title: "test title",
+                            name: "tester 1",
+                            body: "test message",
+                            timestamp: 1234567891234
+                        });
+                        done();
+                    } catch (error) {
+                        done(error);
+                    }
+                });
         });
     });
 

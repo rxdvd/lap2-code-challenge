@@ -1,0 +1,24 @@
+version: '3'
+services:
+  api:
+    container_name: dev_api
+    environment:
+      DB_CONNECTION_URI: mongodb://${DATABASE_USER}:${DATABASE_PASS}@db:27017
+      DB_NAME: ${DATABASE_NAME}
+      PORT: ${API_PORT}
+    depends_on:
+      - db
+    ports:
+      - 3000:${API_PORT}
+    command: sh -c "npm i && npm run seedDb && npm run dev"
+  db:
+    container_name: dev_db
+    environment:
+      MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+    volumes:
+      - dbdata:/var/lib/mongodb/data
+volumes:
+  dbdata:
+networks:
+  default:
+    name: dev

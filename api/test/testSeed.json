@@ -1,0 +1,16 @@
+[
+    {
+        "post_id": 1,
+        "title": "test title",
+        "name": "tester 1",
+        "body": "test message",
+        "timestamp": 1234567891234
+    },
+    {
+        "post_id": 2,
+        "title": "test title 2",
+        "name": "tester 2",
+        "body": "test message 2",
+        "timestamp": 1234567894321
+    }
+]
