@@ -20,7 +20,7 @@ const createTextarea = () => {
   textarea.rows = 12;
   textarea.placeholder = "Story:";
   textarea.maxLength = 300;
-  input.require = true;
+  textarea.require = true;
 
   return textarea;
 };
