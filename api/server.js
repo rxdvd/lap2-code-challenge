@@ -5,6 +5,8 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
+const postsData = require("./data/posts.json");
+
 // GET /posts/:id - return json object for a specfic post
 app.get('/posts/:id', async (req, res) => {
     
