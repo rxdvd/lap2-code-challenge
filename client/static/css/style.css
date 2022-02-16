@@ -32,6 +32,7 @@ body {
   border-radius: 50px;
   min-height: 500px;
   width: 100%;
+  max-width: 400px;
 }
 
 .form_control {
@@ -74,4 +75,27 @@ body {
 }
 .post > #form_story {
   margin: auto 0;
+}
+
+@media screen and (min-width: 800px) {
+  .form {
+    max-width: 800px;
+    min-height: 400px;
+    font-size: larger;
+  }
+  #form_story {
+    height: 150px;
+    font-size: 1.2rem;
+  }
+  .post > #form_story {
+    height: fit-content;
+  }
+  .name_div {
+    display: flex;
+    align-items: baseline;
+    white-space: nowrap;
+  }
+  #form_title {
+    padding-right: 1em;
+  }
 }

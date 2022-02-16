@@ -30,16 +30,22 @@ const postStory = async (e) => {
 const getStory = async (id) => {
   try {
     const response = await fetch(`http://localhost:3000/posts/${id}`);
+    if (response.status === 404) {
+      throw new Error(
+        "That card doesn't exist yet. Why don't you create your own?"
+      );
+    }
     const data = await response.json();
+    console.log("cat");
     createPost(data.title, data.name, data.body);
   } catch (err) {
-    console.warn(err);
+    alert(err);
+    location.reload();
   }
 };
 
 const updateContent = async () => {
   let hash = window.location.hash; //This returns #6
-  console.log(hash);
   await getStory(hash.slice(1));
 };
 
