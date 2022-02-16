@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+body {
+  /* Colours */
+  --bg_blue: #3d5a80;
+  --card_blue: #98c1d9;
+  --text_blue: #293241;
+  --btn_blue: #e0fbfc;
+  /* fonts */
+  font-family: "Poppins", sans-serif;
+  /* layout */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg_blue);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--card_blue);
+  margin: 2em;
+  padding: 3em 2em;
+  border-radius: 50px;
+}
+
+.form_control {
+  font-weight: 500;
+  width: 100%;
+  border: none;
+}
+
+.form_text {
+  background: none;
+  color: var(--text_blue);
+  padding: 0;
+}
+
+#form_title {
+  font-size: 1.75rem;
+}
+#form_name {
+  font-size: 1.25rem;
+}
+#form_story {
+  line-height: 1.6;
+  margin: 1em 0;
+}
+#form_submit {
+  font-weight: 700;
+  font-size: 1.75em;
+  color: var(--btn_blue);
+  background-color: var(--text_blue);
+  width: fit-content;
+  padding: 0.15em 0.75em;
+  margin-top: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+}
