@@ -5,9 +5,14 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-// Welcome message
-app.get('/', (req, res) => {
-    res.json('hello');
+// GET /posts/:id - return json object for a specfic post
+app.get('/posts/:id', async (req, res) => {
+    
+});
+
+// POST /posts - create new post
+app.post('/posts', async (req, res) => {
+    
 });
 
 module.exports = app;
