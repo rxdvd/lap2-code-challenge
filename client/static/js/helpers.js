@@ -36,7 +36,7 @@ const getStory = async (id) => {
       );
     }
     const data = await response.json();
-    createPost(data.title, data.name, data.body);
+    createPost(data.title, data.name, data.body, data.timestamp);
   } catch (err) {
     alert(err);
     location.reload();

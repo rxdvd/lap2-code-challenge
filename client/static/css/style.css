@@ -95,7 +95,10 @@ body {
     align-items: baseline;
     white-space: nowrap;
   }
-  #form_title {
+  #form_title, #form_name {
     padding-right: 1em;
+  }
+  #form_timestamp {
+    margin-left: auto;
   }
 }
