@@ -1,3 +1,5 @@
+const createPost = require("./post");
+
 const postStory = async (e) => {
   e.preventDefault();
   try {
@@ -29,7 +31,7 @@ const getStory = async (id) => {
   try {
     const response = await fetch(`http://localhost:3000/posts/${id}`);
     const data = await response.json();
-    return data;
+    createPost(data.title, data.name, data.body);
   } catch (err) {
     console.warn(err);
   }
