@@ -16,8 +16,7 @@ const createTextarea = () => {
   const textarea = document.createElement("textarea");
   textarea.classList.add("form_control", "form_text");
   textarea.id = "form_story";
-  textarea.cols = 30;
-  textarea.rows = 12;
+  // textarea.rows = 12;
   textarea.placeholder = "Story:";
   textarea.maxLength = 300;
   textarea.require = true;

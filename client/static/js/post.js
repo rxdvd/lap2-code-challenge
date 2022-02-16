@@ -30,10 +30,14 @@ const createPost = (title, name, story) => {
   const body = document.querySelector("body");
   body.innerHTML = "";
 
+  const nameDiv = document.createElement("div");
+  nameDiv.classList.add("name_div");
+  nameDiv.appendChild(createTitle(title));
+  nameDiv.appendChild(createName(name));
+
   const div = document.createElement("div");
-  div.classList.add("form");
-  div.appendChild(createTitle(title));
-  div.appendChild(createName(name));
+  div.classList.add("form", "post");
+  div.appendChild(nameDiv);
   div.appendChild(createStory(story));
 
   body.appendChild(div);
