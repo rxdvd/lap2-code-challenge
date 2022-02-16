@@ -6,8 +6,14 @@ db.createCollection("posts", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["title", "body", "timestamp"],
+            required: ["post_id", "title", "body", "timestamp"],
             properties: {
+                post_id:{
+                    bsonType: "number",
+                    title: "post identifier",
+                    description: "must be a number greater than 0 and is required",
+                    minimum: 1
+                },
                 title: {
                     bsonType: "string",
                     title: "title of post",
@@ -24,7 +30,7 @@ db.createCollection("posts", {
                     bsonType: "string",
                     title: "post body",
                     description: "must be a string and is required",
-                    minLength: 1
+                    minLength: 1, maxLength: 300
                 },
                 timestamp: {
                     bsonType: "number",
