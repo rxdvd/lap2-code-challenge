@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "browserify ./static/js/main.js -o ./static/js/bundle.js",
     "watch": "watchify ./static/js/main.js -o ./static/js/bundle.js -v"
@@ -12,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browserify": "^17.0.0"
+    "browserify": "^17.0.0",
+    "http-server": "^14.1.0"
   },
   "devDependencies": {
     "watchify": "^4.0.0"
