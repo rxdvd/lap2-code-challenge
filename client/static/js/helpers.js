@@ -36,7 +36,6 @@ const getStory = async (id) => {
       );
     }
     const data = await response.json();
-    console.log("cat");
     createPost(data.title, data.name, data.body);
   } catch (err) {
     alert(err);
