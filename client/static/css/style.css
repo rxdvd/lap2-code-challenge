@@ -30,6 +30,8 @@ body {
   margin: 2em;
   padding: 3em 2em;
   border-radius: 50px;
+  min-height: 500px;
+  width: 100%;
 }
 
 .form_control {
@@ -53,6 +55,7 @@ body {
 #form_story {
   line-height: 1.6;
   margin: 1em 0;
+  height: 200px;
 }
 #form_submit {
   font-weight: 700;
@@ -61,7 +64,14 @@ body {
   background-color: var(--text_blue);
   width: fit-content;
   padding: 0.15em 0.75em;
-  margin-top: 1em;
+  margin-top: auto;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.name_div {
+  margin-right: auto;
+}
+.post > #form_story {
+  margin: auto 0;
 }
