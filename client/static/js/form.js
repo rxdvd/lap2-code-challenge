@@ -1,4 +1,4 @@
-const { handleSubmit } = require("./helpers");
+const { postStory } = require("./helpers");
 
 // A function to generate the text input for posts
 const createInput = (placeholder) => {
@@ -7,6 +7,7 @@ const createInput = (placeholder) => {
   input.id = `form_${placeholder.toLowerCase().slice(0, -1)}`;
   input.type = "text";
   input.placeholder = placeholder;
+  input.required = true;
 
   return input;
 };
@@ -19,6 +20,7 @@ const createTextarea = () => {
   textarea.rows = 12;
   textarea.placeholder = "Story:";
   textarea.maxLength = 300;
+  textarea.require = true;
 
   return textarea;
 };
@@ -42,7 +44,7 @@ const createForm = () => {
   form.appendChild(createInput("Name:"));
   form.appendChild(createTextarea());
   form.appendChild(createSubmit());
-  form.addEventListener("submit", handleSubmit);
+  form.addEventListener("submit", postStory);
 
   body.appendChild(form);
 };
