@@ -1,4 +1,4 @@
-const createPost = require("./post");
+const { createPost } = require("./post");
 
 const postStory = async (e) => {
   e.preventDefault();
@@ -44,8 +44,12 @@ const getStory = async (id) => {
 };
 
 const updateContent = async () => {
-  let hash = window.location.hash; //This returns #6
+  let hash = window.location.hash;
   await getStory(hash.slice(1));
 };
 
-module.exports = { postStory, updateContent };
+const exportedForTesting = {
+  getStory,
+};
+
+module.exports = { postStory, updateContent, exportedForTesting };

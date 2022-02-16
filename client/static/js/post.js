@@ -42,4 +42,11 @@ const createPost = (title, name, story) => {
 
   body.appendChild(div);
 };
-module.exports = createPost;
+
+const exportedForTesting = {
+  createTitle,
+  createName,
+  createStory,
+};
+
+module.exports = { createPost, exportedForTesting };

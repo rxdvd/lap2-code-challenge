@@ -39,10 +39,11 @@ describe("Loading in the form:", () => {
       document.body.appendChild(createSubmit());
       submitElem = document.querySelector("input[type='submit']");
     });
-    it("returns something a submit input", () => {
+    it("returns a submit input", () => {
       expect(submitElem).not.toBe(null);
     });
   });
+
   describe("createForm Function:", () => {
     let formElem;
     beforeEach(() => {
@@ -50,7 +51,7 @@ describe("Loading in the form:", () => {
       createForm();
       formElem = document.querySelector("form");
     });
-    it("returns something a form", () => {
+    it("returns a form", () => {
       expect(formElem).not.toBe(null);
     });
     it("has 4 child nodes", () => {
