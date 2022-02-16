@@ -6,4 +6,4 @@ const init = async () => {
     return client.db(process.env.DB_NAME);
 };
 
-module.exports = { init };
+module.exports = init;

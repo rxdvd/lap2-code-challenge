@@ -2,7 +2,7 @@ const Post = require("../models/Post");
 
 async function show(req, res) {
     try {
-        const post = Post.findById(req.params.id);
+        const post = await Post.findById(req.params.id);
         res.status(200).json(post);
     } catch (err) {
         res.status(404).json({
@@ -13,7 +13,7 @@ async function show(req, res) {
 
 async function create(req, res) {
     try {
-        const newPost = Post.create(req.body);
+        const newPost = await Post.create(req.body);
         res.status(201).json(newPost);
     } catch (err) {
         res.status(422).json({

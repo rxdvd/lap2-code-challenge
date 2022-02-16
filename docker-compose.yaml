@@ -1,5 +1,22 @@
 version: '3'
 services:
+  api:
+    image: node:alpine
+    environment:
+      DB_CONNECTION_URI: mongodb://${DATABASE_USER}:${DATABASE_PASS}@db:27017
+      DB_NAME: ${DATABASE_NAME}
+      DB_COLLECTION_NAME: ${COLLECTION_NAME}
+      PORT: ${API_PORT}
+    depends_on:
+      - db
+    ports:
+      - 3000:${API_PORT}
+    volumes:
+      - type: bind
+        source: ./api
+        target: /code
+    working_dir: /code
+    command: sh -c "npm i && npm run seedDb && npm run dev"
   db:
     image: mongo:latest
     environment:
