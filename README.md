@@ -57,7 +57,7 @@ Paired coding challenge to create an anonymous thought posting website similar t
 - Changed message body on form to textarea
 - Made fields on form required
 - Improved styling for desktop
-- Added favicon
+- Added date and time to posts
 
 ### API
 
