@@ -24,6 +24,7 @@ const postStory = async (e) => {
     }
   } catch (err) {
     console.warn(err);
+    return err;
   }
 };
 
