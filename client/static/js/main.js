@@ -1,10 +1,10 @@
 const { createForm } = require("./form");
 const { updateContent } = require("./helpers");
 
-if (!location.hash) {
+//if (!location.hash) {
   createForm();
-} else {
-  updateContent();
-}
+//} else {
+//  updateContent();
+//}
 
 window.addEventListener("hashchange", updateContent);
