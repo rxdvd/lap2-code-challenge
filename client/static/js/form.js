@@ -1,5 +1,3 @@
-const { postStory } = require("./helpers");
-
 // A function to generate the text input for posts
 const createInput = (placeholder) => {
   const input = document.createElement("input");
@@ -35,14 +33,13 @@ const createSubmit = () => {
 // A function to generate the from
 const createForm = () => {
   const body = document.querySelector("body");
-
+  body.innerHTML = "";
   const form = document.createElement("form");
   form.classList.add("form");
   form.appendChild(createInput("Title:"));
   form.appendChild(createInput("Name:"));
   form.appendChild(createTextarea());
   form.appendChild(createSubmit());
-  form.addEventListener("submit", postStory);
 
   body.appendChild(form);
 };

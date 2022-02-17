@@ -77,6 +77,7 @@ Paired coding challenge to create an anonymous thought posting website similar t
 
 - [x] Visiting the webpage for a post doesn't load the post if not already on webpage
 - [x] Unexpectedly logs "cats" to the console
+- [x] Infinite loop occurs when trying to access non-existent post
 
 ### API
 

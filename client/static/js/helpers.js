@@ -1,3 +1,4 @@
+const { createForm } = require("./form");
 const { createPost } = require("./post");
 
 const postStory = async (e) => {
@@ -16,9 +17,9 @@ const postStory = async (e) => {
       body: JSON.stringify({ title, name, body: story }),
     };
     const response = await fetch("http://localhost:3000/posts", options);
-    const { post_id, err } = await response.json();
-    if (err) {
-      throw Error(err);
+    const { post_id, error } = await response.json();
+    if (error) {
+      throw Error(error);
     } else {
       window.location.hash = `${post_id}`;
     }
@@ -28,25 +29,35 @@ const postStory = async (e) => {
   }
 };
 
-const getStory = async (id) => {
-  try {
-    const response = await fetch(`http://localhost:3000/posts/${id}`);
-    if (response.status === 404) {
-      throw new Error(
-        "That card doesn't exist yet. Why don't you create your own?"
-      );
+const getStory = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`http://localhost:3000/posts/${id}`);
+      if (response.status === 404) {
+        throw new Error(
+          "That card doesn't exist yet. Why don't you create your own?"
+        );
+      }
+      const data = await response.json();
+      resolve([data.title, data.name, data.body, data.timestamp]);
+    } catch (err) {
+      alert(err.message);
+      reject(err);
     }
-    const data = await response.json();
-    createPost(data.title, data.name, data.body, data.timestamp);
-  } catch (err) {
-    alert(err);
-    location.reload();
-  }
+  });
 };
 
 const updateContent = async () => {
-  let hash = window.location.hash;
-  await getStory(hash.slice(1));
+  try {
+    let hash = window.location.hash;
+    if(!hash) throw new Error();
+    let response = await getStory(hash.slice(1));
+    createPost(...response);
+  } catch (err) {
+    createForm();
+    const form = document.querySelector("form");
+    form.addEventListener("submit", postStory);
+  }
 };
 
 const exportedForTesting = {
