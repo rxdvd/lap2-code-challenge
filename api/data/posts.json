@@ -1,0 +1,16 @@
+[
+    {
+        "post_id": 1,
+        "title": "hello world",
+        "name": "wailon",
+        "body": "hello world!",
+        "timestamp": 1645006919699
+    },
+    {
+        "post_id": 2,
+        "title": "hello",
+        "name": "edward",
+        "body": "hello!",
+        "timestamp": 1645006957462
+    }
+]

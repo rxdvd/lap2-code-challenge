@@ -4,9 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server",
+    "test": "jest --coverage --watchAll",
+    "build": "browserify ./static/js/main.js -o ./static/js/bundle.js",
+    "watch": "watchify ./static/js/main.js -o ./static/js/bundle.js -v"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "http-server": "^14.1.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "watchify": "^4.0.0"
+  }
 }

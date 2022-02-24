@@ -1,0 +1,35 @@
+version: '3'
+services:
+  client:
+    container_name: dev_client
+    image: node:alpine
+    ports:
+      - 8000:8080
+    volumes:
+      - type: bind
+        source: ./client
+        target: /code
+    working_dir: /code
+    command: sh -c "npm i && npm run build && npm start"
+  api:
+    container_name: dev_api
+    environment:
+      DB_CONNECTION_URI: mongodb://${DATABASE_USER}:${DATABASE_PASS}@db:27017
+      DB_NAME: ${DATABASE_NAME}
+      PORT: ${API_PORT}
+    depends_on:
+      - db
+    ports:
+      - 3000:${API_PORT}
+    command: sh -c "npm i && npm run seedDb && npm run dev"
+  db:
+    container_name: dev_db
+    environment:
+      MONGO_INITDB_DATABASE: ${DATABASE_NAME}
+    volumes:
+      - dbdata:/var/lib/mongodb/data
+volumes:
+  dbdata:
+networks:
+  default:
+    name: dev
